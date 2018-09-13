@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './shared/Header';
-import RentalCard from './components/RentaCard';
+import Rentallist from './components/Rental_list';
 import './App.css';
 
 class App extends Component {
@@ -9,15 +9,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className='container'>
-          <section id='rentalListing'>
-            <h1 className='page-title'>Find Home every place in the world!!</h1>
-            <div className='row'>
-              <RentalCard />
-              <RentalCard />
-              <RentalCard />
-
-            </div>
-          </section>
+          <Rentallist />
         </div>
 
       </div>
