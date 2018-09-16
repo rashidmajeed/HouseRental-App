@@ -53,18 +53,28 @@ const rentals = [{
   createdAt: "24/12/2017"
 }];
 
- export const getAllRentals = () => {
-   return {
-     type : GET_ALL_RENTALS,
-     rentals
-   }
- }
-
-
- export const getRentalById = (rentalId) => {
-   const rental = rentals.find((rental) => rental.id.toString() === rentalId);
+export const getAllRentals = () => {
   return {
-    type : GET_RENTAL_BY_ID,
+    type: GET_ALL_RENTALS,
+    rentals
+  }
+}
+
+export const getRentalById = (rentalId) => {
+  return function (dispatch) {
+
+    // Simulate a server Call
+    setTimeout(() => {
+      const rental = rentals.find((rental) => rental.id.toString() === rentalId);
+      // dispatch action here
+      dispatch(async_getRentalById(rental));
+    }, 1000);
+  }
+}
+
+const async_getRentalById = (rental) => {
+  return {
+    type: GET_RENTAL_BY_ID,
     rental
   }
 }
